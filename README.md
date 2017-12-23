@@ -3,12 +3,14 @@ To integrate it into your projects you only have to copy the file that comes wit
 $password = new PassWordGenerator("High", "High", 20);
 
 The 3 parameters we have passed on to the class will define how you want the password to be brought to you. Either only letters, or numbers combined with letters or numbers combined with signs and letters. Any combination you want! we will see this later.
-Usage
+
+<h3>Usage</h3>
 
 After you have instantiated the class and created the password according to your criteria, the correct way to access it is to use the "password" attribute and you will have it available to display it on your screen or save it to your database.
 
 echo $password->password;
-Settings
+
+<h3>Settings</h3>
 
 There are 3 types of combinations available to generate passwords: Only letters, letters and numbers, letters with numbers and signs. And this you can define in the first parameter you pass to the class when you initialize it. This can be "Normal" for the first case, "Medium" for the second and "High" for the third. This parameter is required.
 
