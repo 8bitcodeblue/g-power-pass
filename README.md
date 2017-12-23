@@ -1,30 +1,29 @@
-# g-power-pass
- If you have a site and want to generate passwords automatically for registered users or for people who forget their passwords and want a new password, this PHP class is for you. It is very easy to use, it only uses three parameters and it begins to automate the creation of passwords.
+Si tiene un sitio y desea generar contraseñas automáticamente para los usuarios registrados o para las personas que olvidan sus contraseñas y quieren una nueva, esta clase de PHP es para usted. Es muy fácil de usar, solo usa tres parámetros y comienza a automatizar la creación de contraseñas.
 
-To include it in your projects, simply copy the file that comes with the package containing "PasswordGenerator.php" and place it where you want in your project. When you decide to use it, you should only assign it to a variable as you will see below.
+Para incluirlo en sus proyectos, solo tiene que copiar el archivo que viene con el paquete que contiene "PasswordGenerator.php" y colocarlo donde desee en su proyecto. Cuando decida utilizarlo, solo debe asignarlo a una variable como verá a continuación.
 
-$ password = new PassWordGenerator ("High", "High", 20);
+$ password = new PassWordGenerator ("Alto", "Alto", 20);
 
-The 3 parameters that we have passed to the class define how you want the password to be sent to you. Or just letters or numbers combined with letters or numbers combined with signs and letters. Any combination you want! We'll see this later.
+Los 3 parámetros que hemos pasado a la clase definen cómo quieres que se la envíe la contraseña. O solo letras o números combinados con letras o números combinados con signos y letras. ¡Cualquier combinación que quieras! veremos esto más tarde.
 
-Use
-After having made the class and created the password according to your criteria, the correct way to access it is to use the attribute "password" and we will have it available to display it on your screen or save it in your database.
+Uso
+Después de haber realizado la clase y creado la contraseña de acuerdo con sus criterios, la forma correcta de acceder a ella es usar el atributo "contraseña" y lo tendremos disponible para mostrarlo en su pantalla o guardarlo en su base de datos.
 
-echo $ password-> password;
+echo $ contraseña-> contraseña;
 
-Configurations
-There are three types of combinations available to generate passwords: only letters, letters and numbers, letters with numbers and signs. And this you can define in the first parameter that you pass to the class when you initialize it. This can be "Normal" for the first case, "Medium" for the second and "High" for the third. This parameter is mandatory.
+Configuraciones
+Hay tres tipos de combinaciones disponibles para generar contraseñas: solo letras, letras y números, letras con números y signos. Y esto lo puedes definir en el primer parámetro que pasas a la clase cuando lo inicializas. Esto puede ser "Normal" para el primer caso, "Medio" para el segundo y "Alto" para el tercero. Este parámetro es obligatorio.
 
-// Only letters: $ password = new PassWordGenerator ("Normal", "Slow", 10);
+// Solo letras: $ password = new PassWordGenerator ("Normal", "Lento", 10);
 
-// Letters and numbers: $ password = new PassWordGenerator ("Medium", "Slow", 10);
+// Lettras y numeros: $ password = new PassWordGenerator ("Medio", "Lento", 10);
 
-// Letters. numbers, signs: $ password = new PassWordGenerator ("High", "Slow", 10);
+// Letras. numeros, signos: $ password = new PassWordGenerator ("Alto", "Lento", 10);
 
-The second parameter establishes the level of security that can be applied and can pass the "Slow" types to any type and "High" to decode the password created with the native PHP function "base64_encode ()". This parameter is mandatory.
+El segundo parámetro establece el nivel de seguridad que puede aplicarse y puede pasar los tipos "Lento" a cualquier tipo y "Alto" para decodificar la contraseña creada con la función PHP nativa "base64_encode ()". Este parámetro es obligatorio.
 
-// not decoded $ password = new PassWordGenerator ("Medium", "Slow", 10);
+// no decodificado $ password = new PassWordGenerator ("Medio", "Lento", 10);
 
-// Coded $ password = new PassWordGenerator ("Normal", "High", 15);
+// Codificado $ password = new PassWordGenerator ("Normal", "Alto", 15);
 
-And the third and last parameter defines the number of characters that the generated password will contain. You may notice that, in the case of decoded passwords, the total number of concepts is greater, but that is only due to the definition and as soon as the decoders have exactly the number you defined.
+Y el tercer y último parámetro define la cantidad de caracteres que contendrá la contraseña generada. Puede observar que, en el caso de las contraseñas descodificadas, el número total de conceptos es mayor, pero eso solo se debe a la definición y tan pronto como los decodificadores tengan exactamente el número que usted definió.
