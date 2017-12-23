@@ -1,29 +1,27 @@
-Si tiene un sitio y desea generar contraseñas automáticamente para los usuarios registrados o para las personas que olvidan sus contraseñas y quieren una nueva, esta clase de PHP es para usted. Es muy fácil de usar, solo usa tres parámetros y comienza a automatizar la creación de contraseñas.
+To integrate it into your projects you only have to copy the file that comes with the package that you purchased called "PasswordGenerator.php" and place it wherever you want in your project. When you decide to use it you should only assign it to a variable as you will see below..
 
-Para incluirlo en sus proyectos, solo tiene que copiar el archivo que viene con el paquete que contiene "PasswordGenerator.php" y colocarlo donde desee en su proyecto. Cuando decida utilizarlo, solo debe asignarlo a una variable como verá a continuación.
+$password = new PassWordGenerator("High", "High", 20);
 
-$ password = new PassWordGenerator ("Alto", "Alto", 20);
+The 3 parameters we have passed on to the class will define how you want the password to be brought to you. Either only letters, or numbers combined with letters or numbers combined with signs and letters. Any combination you want! we will see this later.
+Usage
 
-Los 3 parámetros que hemos pasado a la clase definen cómo quieres que se la envíe la contraseña. O solo letras o números combinados con letras o números combinados con signos y letras. ¡Cualquier combinación que quieras! veremos esto más tarde.
+After you have instantiated the class and created the password according to your criteria, the correct way to access it is to use the "password" attribute and you will have it available to display it on your screen or save it to your database.
 
-Uso
-Después de haber realizado la clase y creado la contraseña de acuerdo con sus criterios, la forma correcta de acceder a ella es usar el atributo "contraseña" y lo tendremos disponible para mostrarlo en su pantalla o guardarlo en su base de datos.
+echo $password->password;
+Settings
 
-echo $ contraseña-> contraseña;
+There are 3 types of combinations available to generate passwords: Only letters, letters and numbers, letters with numbers and signs. And this you can define in the first parameter you pass to the class when you initialize it. This can be "Normal" for the first case, "Medium" for the second and "High" for the third. This parameter is required.
 
-Configuraciones
-Hay tres tipos de combinaciones disponibles para generar contraseñas: solo letras, letras y números, letras con números y signos. Y esto lo puedes definir en el primer parámetro que pasas a la clase cuando lo inicializas. Esto puede ser "Normal" para el primer caso, "Medio" para el segundo y "Alto" para el tercero. Este parámetro es obligatorio.
+//Only Letters: $password = new PassWordGenerator("Normal", "Slow", 10);
 
-// Solo letras: $ password = new PassWordGenerator ("Normal", "Lento", 10);
+//Letters and Numbers: $password = new PassWordGenerator("Medium", "Slow", 10);
 
-// Lettras y numeros: $ password = new PassWordGenerator ("Medio", "Lento", 10);
+//Letters, Numbers and Signs: $password = new PassWordGenerator("High", "Slow", 10);
 
-// Letras. numeros, signos: $ password = new PassWordGenerator ("Alto", "Lento", 10);
+The second parameter sets the level of security you want to apply and you can pass two "Slow" types to any type and "High" to decode the password created with the "base64_encode ()" native PHP function. This parameter is required.
 
-El segundo parámetro establece el nivel de seguridad que puede aplicarse y puede pasar los tipos "Lento" a cualquier tipo y "Alto" para decodificar la contraseña creada con la función PHP nativa "base64_encode ()". Este parámetro es obligatorio.
+// Not Decoded $password = new PassWordGenerator("Medium", "Slow", 10);
 
-// no decodificado $ password = new PassWordGenerator ("Medio", "Lento", 10);
+// Decoded $password = new PassWordGenerator("Normal", "High", 15);
 
-// Codificado $ password = new PassWordGenerator ("Normal", "Alto", 15);
-
-Y el tercer y último parámetro define la cantidad de caracteres que contendrá la contraseña generada. Puede observar que, en el caso de las contraseñas descodificadas, el número total de conceptos es mayor, pero eso solo se debe a la definición y tan pronto como los decodificadores tengan exactamente el número que usted definió.
+And the third and last parameter defines the number of characters that the generated password will contain. You may notice that for the case of decoded passwords the total number of characters will be greater but that is only thanks to the decoding and as soon as the decoders will have exactly the number that you defined
